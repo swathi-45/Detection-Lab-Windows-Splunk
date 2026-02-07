@@ -15,7 +15,7 @@ Set up a SOC lab on Windows 10 with Splunk Enterprise, verify Windows Security l
 - Documented all actions, observations, and evidence in a PDF.  
 
 **Artifacts:**  
-- [SOC-Lab-Day01-Windows-Splunk.pdf](./Day01/SOC-Lab-Day01-Windows-Splunk.pdf) — Full documentation with screenshots and notes.  
+-  https://drive.google.com/file/d/1rwe0Jr5t-cw-NX_JNnqLDuTFtXkSz7Lp/view?usp=sharing — Full documentation with screenshots and notes.  
 
 **Learning Outcome:**  
 - Verified working Windows + Splunk SOC lab.  
