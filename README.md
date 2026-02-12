@@ -1,35 +1,55 @@
-📚 Table of Contents
-# Introduction
-# Goals and Audience
-# Daily Breakdown
-  ## Day 01: Windows + Splunk Setup
-  ## Day 02: Log Ingestion & Investigation
-# soc-lab-journal-
-SOC Lab Journal: Hands-on Windows 10 + Splunk setup with Windows Security log analysis and documented evidence.
-# SOC Lab Journal
+# 🛡️ SOC Analyst Learning Path (90-Day Challenge)
 
-## Day 01: Windows + Splunk Setup
+Welcome to my cybersecurity journey! This repository documents my hands-on experience building a SOC Lab, analyzing threats, and mastering SIEM tools. I am following a structured path to transition into a Professional SOC Analyst role.
 
-**Objective:**  
-Set up a SOC lab on Windows 10 with Splunk Enterprise, verify Windows Security logs, and capture evidence of lab readiness.  
+## 📚 Table of Contents
+* [Introduction](#-introduction)
+* [Goals](#-goals)
+* [Tools & Technologies](#-tools--technologies)
+* [Daily Progress Journal](#-daily-progress-journal)
+    * [Phase 1: Lab Build (Day 1-7)](#phase-1-lab-build-day-1-7)
+* [Resources](#-resources)
 
-**Summary of Work:**  
-- Installed Windows 10 VM on VirtualBox.  
-- Installed Splunk Enterprise on Windows 10 and accessed the web dashboard.  
-- Explored Windows Event Viewer → Security logs.  
-- Filtered and inspected authentication events (failed logons).  
-- Documented all actions, observations, and evidence in a PDF.  
+## 📘 Introduction
+This repository is a live journal of my technical growth. It covers:
+* SIEM Management (Splunk)
+* Endpoint Security (Windows 10/Linux)
+* Log Analysis (Event Viewer & Sysmon)
+* Traffic Analysis (Wireshark)
 
-**Artifacts:**  
--  https://drive.google.com/file/d/1rwe0Jr5t-cw-NX_JNnqLDuTFtXkSz7Lp/view?usp=sharing — Full documentation with screenshots and notes.  
+## 🎯 Goals
+1. Build a fully functional SOC Home Lab.
+2. Ingest and analyze 10+ different attack vectors in Splunk.
+3. Master SPL (Splunk Search Processing Language) for threat hunting.
 
-**Learning Outcome:**  
-- Verified working Windows + Splunk SOC lab.  
-- Confirmed access to Windows Security logs.  
-- Developed a habit of evidence-first documentation, ready for SOC interviews.  
+## 🛠️ Tools & Technologies
+* **SIEM:** Splunk Enterprise
+* **Virtualization:** Oracle VirtualBox
+* **OS:** Windows 10, Kali Linux
+* **Analysis:** Wireshark, Nmap, Sysmon
 
-**Next Steps:**  
-- Analyze one Windows authentication event in depth.  
-- Translate coded log fields (like %%2304) into meaning.  
-- Ingest Windows logs into Splunk for search and analysis.  
+---
 
+## 📅 Daily Progress Journal
+
+### Phase 1: Lab Build (Day 1-7)
+
+#### **Day 1: Environment Readiness**
+* **Task:** Setup VirtualBox with Windows 10 and install Splunk Enterprise.
+* **Outcome:** Verified "Evidence-First" documentation habit.
+* **Documentation:** [[View Day 1 Journal]](https://drive.google.com/file/d/1rwe0Jr5t-cw-NX_JNnqLDuTFtXkSz7Lp/view)(./docs/Day-01.md)
+
+#### **Day 2: Log Ingestion & Authentication Analysis**
+* **Task:** Ingest Windows Security logs into Splunk and analyze Event ID 4625.
+* **Outcome:** Successfully identified failed logon patterns using SPL.
+* **Documentation:** [View Day 2 Journal](./docs/Day-02.md)
+
+#### **Day 3: (Coming Soon)**
+* **Task:** Installing Sysmon for advanced telemetry.
+
+---
+
+## 📂 Repository Structure
+* `/docs`: Detailed technical write-ups for each day.
+* `/images`: Screenshots and evidence artifacts.
+* `/scripts`: SPL queries and automation scripts.
