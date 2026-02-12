@@ -37,12 +37,12 @@ This repository is a live journal of my technical growth. It covers:
 #### **Day 1: Environment Readiness**
 * **Task:** Setup VirtualBox with Windows 10 and install Splunk Enterprise.
 * **Outcome:** Verified "Evidence-First" documentation habit.
-* **Documentation:** [[View Day 1 Journal]](https://drive.google.com/file/d/1rwe0Jr5t-cw-NX_JNnqLDuTFtXkSz7Lp/view)(./docs/Day-01.md)
+* **Documentation:** [[View Day 1 Journal]](https://drive.google.com/file/d/1rwe0Jr5t-cw-NX_JNnqLDuTFtXkSz7Lp/view)
 
 #### **Day 2: Log Ingestion & Authentication Analysis**
 * **Task:** Ingest Windows Security logs into Splunk and analyze Event ID 4625.
 * **Outcome:** Successfully identified failed logon patterns using SPL.
-* **Documentation:** [View Day 2 Journal](./docs/Day-02.md)
+* **Documentation:** [View Day 2 Journal]
 
 #### **Day 3: (Coming Soon)**
 * **Task:** Installing Sysmon for advanced telemetry.
