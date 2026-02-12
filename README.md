@@ -1,3 +1,9 @@
+📚 Table of Contents
+# Introduction
+# Goals and Audience
+# Daily Breakdown
+  ## Day 01: Windows + Splunk Setup
+  ## Day 02: Log Ingestion & Investigation
 # soc-lab-journal-
 SOC Lab Journal: Hands-on Windows 10 + Splunk setup with Windows Security log analysis and documented evidence.
 # SOC Lab Journal
