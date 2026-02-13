@@ -42,7 +42,7 @@ This repository is a live journal of my technical growth. It covers:
 #### **Day 2: Log Ingestion & Authentication Analysis**
 * **Task:** Ingest Windows Security logs into Splunk and analyze Event ID 4625.
 * **Outcome:** Successfully identified failed logon patterns using SPL.
-* **Documentation:** [View Day 2 Journal](https://drive.google.com/file/d/1T6B0GwhBblv6G9jKeMFvi4ePPPbbTfph/view?usp=sharing)
+* **Documentation:** [[View Day 2 Journal]](https://drive.google.com/file/d/1T6B0GwhBblv6G9jKeMFvi4ePPPbbTfph/view?usp=sharing)
 
 #### **Day 3: (Coming Soon)**
 * **Task:** Installing Sysmon for advanced telemetry.
