@@ -1,50 +1,129 @@
-# 🛡️ SOC Analyst Learning Path (90-Day Challenge)
+# 🛡️ SOC Analyst Portfolio – Detection Engineering Lab
 
-Welcome to my cybersecurity journey! This repository documents my hands-on experience building a SOC Lab, analyzing threats, and mastering SIEM tools. I am following a structured path to transition into a Professional SOC Analyst role.
-
-## 📚 Table of Contents
-* [Introduction](#-introduction)
-* [Goals](#-goals)
-* [Tools & Technologies](#-tools--technologies)
-* [Daily Progress Journal](#-daily-progress-journal)
-    * [Phase 1: Lab Build (Day 1-7)](#phase-1-lab-build-day-1-7)
-* [Resources](#-resources)
-
-## 📘 Introduction
-This repository is a live journal of my technical growth. It covers:
-* SIEM Management (Splunk)
-* Endpoint Security (Windows 10/Linux)
-* Log Analysis (Event Viewer & Sysmon)
-* Traffic Analysis (Wireshark)
-
-## 🎯 Goals
-1. Build a fully functional SOC Home Lab.
-2. Ingest and analyze 10+ different attack vectors in Splunk.
-3. Master SPL (Splunk Search Processing Language) for threat hunting.
-
-## 🛠️ Tools & Technologies
-* **SIEM:** Splunk Enterprise
-* **Virtualization:** Oracle VirtualBox
-* **OS:** Windows 10, Kali Linux
-* **Analysis:** Wireshark, Nmap, Sysmon
+**Author:** Your Name  
+**Focus:** Detection Engineering, Authentication Monitoring, and SIEM Operations using Splunk.
 
 ---
 
-## 📅 Daily Progress Journal
+## 🏗️ Lab Architecture
 
-### Phase 1: Lab Build (Day 1-7)
+This lab simulates attacker behavior against a monitored Windows endpoint to develop and validate detection logic.
 
-#### **Day 1: Environment Readiness**
-* **Task:** Setup VirtualBox with Windows 10 and install Splunk Enterprise.
-* **Outcome:** Verified "Evidence-First" documentation habit.
-* **Documentation:** [[View Day 1 Journal]](https://drive.google.com/file/d/1rwe0Jr5t-cw-NX_JNnqLDuTFtXkSz7Lp/view)
-
-#### **Day 2: Log Ingestion & Authentication Analysis**
-* **Task:** Ingest Windows Security logs into Splunk and analyze Event ID 4625.
-* **Outcome:** Successfully identified failed logon patterns using SPL.
-* **Documentation:** [[View Day 2 Journal]](https://drive.google.com/file/d/1T6B0GwhBblv6G9jKeMFvi4ePPPbbTfph/view?usp=sharing)
-
-#### **Day 3: (Coming Soon)**
-* **Task:** Installing Sysmon for advanced telemetry.
+```
+[ Kali Linux ]  --->  [ Windows 10 Endpoint ]  --->  [ Splunk Enterprise ]
+   (Attacker)           (Security Logs)             (Search & Alerting)
+```
 
 ---
+
+## 🛠️ Technical Environment
+
+| Component | Technology |
+|------------|------------|
+| SIEM | Splunk Enterprise |
+| Endpoint | Windows 10 Pro |
+| Telemetry | Windows Security Logs |
+| Virtualization | Oracle VirtualBox |
+| Attack Simulation | Kali Linux |
+
+---
+
+# 📁 Security Projects & Case Studies
+
+Each project includes:
+- Log source validation
+- Attack simulation
+- SPL query development
+- Detection rule creation
+- False positive considerations
+
+---
+
+## 1️⃣ Lab Deployment & Log Validation
+
+### Objective
+Establish end-to-end telemetry flow from Windows endpoint to Splunk.
+
+### Actions Performed
+- Deployed Windows 10 virtual machine
+- Installed Splunk Enterprise
+- Configured log ingestion
+- Verified Event ID visibility (4624, 4625, 4672)
+
+### Outcome
+Confirmed reliable data pipeline and searchable authentication logs.
+
+📄 Documentation: `./projects/day-1-lab-setup.md`
+
+---
+
+## 2️⃣ Windows Authentication Analysis – Brute Force Detection
+
+### Objective
+Detect repeated failed authentication attempts (MITRE ATT&CK T1110 – Brute Force).
+
+### Log Source
+Windows Security Log (Event ID 4625)
+
+---
+
+### 🔎 Detection Query (Threshold-Based)
+
+```spl
+index=main EventCode=4625
+| stats count by TargetUserName, Source_Network_Address
+| where count > 10
+```
+
+### Purpose
+Identify accounts experiencing excessive failed login attempts from a single source.
+
+---
+
+### 🔎 Improved Time-Based Detection
+
+```spl
+index=main EventCode=4625
+| bin _time span=2m
+| stats count by _time, TargetUserName, Source_Network_Address
+| where count > 5
+```
+
+### Purpose
+Detect rapid authentication failures within a short time window to reduce false positives.
+
+---
+
+### Findings
+
+- Identified repeated failed login attempts
+- Determined source IP generating failures
+- Differentiated between normal user mistakes and suspicious patterns
+
+📄 Documentation: `./projects/day-2-authentication-analysis.md`
+
+---
+
+## 🧠 Core Skills Demonstrated
+
+- Splunk installation & configuration
+- Windows Security log ingestion
+- Event ID analysis (4624, 4625, 4672)
+- SPL query development
+- Threshold-based detection
+- Time-window correlation logic
+- Basic detection tuning
+
+---
+
+## 🚀 Next Development Areas
+
+- Password spraying detection
+- Success-after-failure correlation
+- Sysmon process monitoring
+- Privilege escalation detection
+- Network-based anomaly detection
+
+---
+
+This lab environment is built in isolation for educational and detection engineering practice.
