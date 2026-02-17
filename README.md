@@ -1,129 +1,79 @@
-# 🛡️ SOC Analyst Portfolio – Detection Engineering Lab
+# 🛡️ SOC Detection Lab – Windows Authentication Analysis (Splunk)
 
-**Author:** Your Name  
-**Focus:** Detection Engineering, Authentication Monitoring, and SIEM Operations using Splunk.
-
----
-
-## 🏗️ Lab Architecture
-
-This lab simulates attacker behavior against a monitored Windows endpoint to develop and validate detection logic.
-
-```
-[ Kali Linux ]  --->  [ Windows 10 Endpoint ]  --->  [ Splunk Enterprise ]
-   (Attacker)           (Security Logs)             (Search & Alerting)
-```
+Hands-on lab focused on Windows Security log ingestion and failed authentication monitoring using Splunk.
 
 ---
 
-## 🛠️ Technical Environment
+## 🔧 Lab Environment
 
-| Component | Technology |
-|------------|------------|
-| SIEM | Splunk Enterprise |
-| Endpoint | Windows 10 Pro |
-| Telemetry | Windows Security Logs |
-| Virtualization | Oracle VirtualBox |
-| Attack Simulation | Kali Linux |
+- SIEM: Splunk Enterprise  
+- Virtualization: Oracle VirtualBox  
+- Endpoint: Windows 10 Pro  
+- Log Source: Windows Security Event Logs  
 
 ---
 
-# 📁 Security Projects & Case Studies
+## ✅ Work Completed
 
-Each project includes:
-- Log source validation
-- Attack simulation
-- SPL query development
-- Detection rule creation
-- False positive considerations
+### 1️⃣ Splunk Installation & Validation
 
----
-
-## 1️⃣ Lab Deployment & Log Validation
-
-### Objective
-Establish end-to-end telemetry flow from Windows endpoint to Splunk.
-
-### Actions Performed
-- Deployed Windows 10 virtual machine
 - Installed Splunk Enterprise
-- Configured log ingestion
-- Verified Event ID visibility (4624, 4625, 4672)
-
-### Outcome
-Confirmed reliable data pipeline and searchable authentication logs.
-
-📄 Documentation: `./projects/day-1-lab-setup.md`
+- Verified web interface access
+- Confirmed indexing functionality
+- Validated search capability
 
 ---
 
-## 2️⃣ Windows Authentication Analysis – Brute Force Detection
+### 2️⃣ Windows Security Log Monitoring
 
-### Objective
-Detect repeated failed authentication attempts (MITRE ATT&CK T1110 – Brute Force).
+Analyzed the following Event IDs:
 
-### Log Source
-Windows Security Log (Event ID 4625)
+- 4624 – Successful Logon  
+- 4625 – Failed Logon  
+- 4672 – Special Privileges Assigned  
+
+Confirmed logs were searchable and fields were properly extracted.
 
 ---
 
-### 🔎 Detection Query (Threshold-Based)
+### 3️⃣ Failed Login Analysis (Event ID 4625)
+
+Performed manual login failure testing on Windows endpoint.
+
+#### SPL Query Used
 
 ```spl
 index=main EventCode=4625
 | stats count by TargetUserName, Source_Network_Address
-| where count > 10
+| sort - count
 ```
 
-### Purpose
-Identify accounts experiencing excessive failed login attempts from a single source.
+Identified:
+- Accounts with repeated failed logon attempts
+- Source IP generating authentication failures
 
 ---
 
-### 🔎 Improved Time-Based Detection
+### 4️⃣ Basic Threshold Detection Rule
 
 ```spl
 index=main EventCode=4625
-| bin _time span=2m
-| stats count by _time, TargetUserName, Source_Network_Address
+| stats count by TargetUserName, Source_Network_Address
 | where count > 5
 ```
 
-### Purpose
-Detect rapid authentication failures within a short time window to reduce false positives.
+Created a basic rule to flag excessive failed login attempts.
 
 ---
 
-### Findings
+## 🧠 Skills Demonstrated
 
-- Identified repeated failed login attempts
-- Determined source IP generating failures
-- Differentiated between normal user mistakes and suspicious patterns
-
-📄 Documentation: `./projects/day-2-authentication-analysis.md`
-
----
-
-## 🧠 Core Skills Demonstrated
-
-- Splunk installation & configuration
-- Windows Security log ingestion
-- Event ID analysis (4624, 4625, 4672)
-- SPL query development
-- Threshold-based detection
-- Time-window correlation logic
-- Basic detection tuning
+- Splunk setup & configuration  
+- Windows log ingestion validation  
+- Event ID analysis  
+- SPL query creation  
+- Basic detection logic development  
 
 ---
 
-## 🚀 Next Development Areas
-
-- Password spraying detection
-- Success-after-failure correlation
-- Sysmon process monitoring
-- Privilege escalation detection
-- Network-based anomaly detection
-
----
-
-This lab environment is built in isolation for educational and detection engineering practice.
+This lab was conducted in an isolated environment for educational and detection engineering practice.
