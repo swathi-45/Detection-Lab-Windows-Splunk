@@ -26,7 +26,7 @@
 ### 1. VirtualBox & OS Deployment
 Successfully booted the Windows 10 instance and verified the desktop environment.
 
-<img src=". /projects/screenshots/day-01/windows10.png">
+<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/a34cb172d8d307d9ea4cb327c8f352068c9ee704/projects/screenshots/day-01/windows10.png">
 
 ### 2. Event Viewer - Security Logs
 Confirmed that the system is successfully generating and capturing security telemetry.
