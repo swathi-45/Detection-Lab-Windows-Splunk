@@ -26,19 +26,19 @@
 ### 1. VirtualBox & OS Deployment
 Successfully booted the Windows 10 instance and verified the desktop environment.
 
-<img src="./windows10.png" width="800" alt="Windows 10 Desktop">
+<img src="./projects/screenshots/day-01/windows10.png">
 
 ### 2. Event Viewer - Security Logs
 Confirmed that the system is successfully generating and capturing security telemetry.
 
-<img src="projects/screenshots/day-01/Eventviewer_4625__List.png" width="500" alt="Event Viewer List">
+<img src="./projects/screenshots/day-01/Eventviewer_4625__List.png" width="500" alt="Event Viewer List">
 
 ### 3. Deep Dive: Event ID 4625 (Logon Failure)
 Captured specific "Audit Failure" logs showing Status `0xc000006d` and SubStatus `0xc0000380`.
 
 | General View | Event Data (Technical) |
 | :---: | :---: |
-| <img src="projects/screenshots/day-01/Event4625_General.png" width="450"> | <img src="./03_Event4625_Eventdata.png" width="450"> |
+| <img src="./projects/screenshots/day-01/Event4625_General.png" width="450"> | <img src="./projects/screenshots/day-01/Event4625_Eventdata.png" width="450"> |
 
 ---
 
