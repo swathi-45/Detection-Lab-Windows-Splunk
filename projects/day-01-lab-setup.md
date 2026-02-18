@@ -1,59 +1,48 @@
-# 🏗️ Lab Deployment & Log Visibility Validation
-**Date:** February 7, 2026  
+# 🛡️ SOC Lab: Deployment & Log Visibility Validation
 
-**Objective:** Finalize the lab setup using VirtualBox, Windows 10, and Splunk Enterprise. Verify Windows Security logging and capture evidence.
+**Date:** February 7, 2026  
+**Objective:** Finalize lab setup using VirtualBox, Windows 10, and Splunk Enterprise to verify Windows Security logging.
 
 ---
 
 ## 💻 Environment Specifications
-
-- **Host OS:** Windows  
-- **Virtualization:** Oracle VirtualBox  
-- **Guest OS:** Windows 10  
-- **SIEM:** Splunk Enterprise (local installation)  
-- **Purpose:** Windows log analysis for SOC skill development  
+* **Host OS:** Windows
+* **Virtualization:** Oracle VirtualBox
+* **Guest OS:** Windows 10
+* **SIEM:** Splunk Enterprise (local installation)
 
 ---
 
 ## 🛠️ Implementation & Tasks Completed
-
-1. Deployed Windows 10 virtual machine in VirtualBox  
-2. Installed VirtualBox Guest Additions (`VBoxWindowsAdditions.exe`)  
-3. Installed Splunk Enterprise and verified web access at `http://localhost:8000`  
-4. Opened Event Viewer → Windows Logs → Security to inspect authentication events  
-
----
-
-## 📊 Results & Validation
-
-- System booted successfully  
-- Splunk Web interface accessible  
-- Windows Security logs confirmed  
-- Verified authentication events including:
-  - Event ID 4624 (Logon)
-  - Event ID 4672 (Special Logon)
+* Deployed Windows 10 virtual machine in VirtualBox.
+* Installed VirtualBox Guest Additions (`VBoxWindowsAdditions.exe`).
+* Installed Splunk Enterprise and verified web access at `http://localhost:8000`.
+* Opened Event Viewer to inspect Security authentication events.
 
 ---
 
-## 🖼️ Evidence
+## 🖼️ Evidence & Validation
 
-### VirtualBox – VM Running
-![VM Running](../screenshots/day-01/day1_vbox_vm_running.png)
+### 1. VirtualBox & OS Deployment
+Successfully booted the Windows 10 instance and verified the desktop environment.
 
-### Splunk Web Interface
-![Splunk Dashboard](../screenshots/day-01/day1_splunk_dashboard.png)
+<img src="./windows10.png" width="800" alt="Windows 10 Desktop">
 
-### Event Viewer – Security Logs
-![Event Viewer Security Log](../screenshots/day-01/day1_eventviewer_security.png)
+### 2. Event Viewer - Security Logs
+Confirmed that the system is successfully generating and capturing security telemetry.
+
+<img src="projects/screenshots/day-01/Eventviewer_4625__List.png" width="500" alt="Event Viewer List">
+
+### 3. Deep Dive: Event ID 4625 (Logon Failure)
+Captured specific "Audit Failure" logs showing Status `0xc000006d` and SubStatus `0xc0000380`.
+
+| General View | Event Data (Technical) |
+| :---: | :---: |
+| <img src="projects/screenshots/day-01/Event4625_General.png" width="450"> | <img src="./03_Event4625_Eventdata.png" width="450"> |
 
 ---
 
 ## 🚀 Next Steps
-
-- Analyze specific Windows authentication events  
-- Configure Splunk to ingest Windows Security logs  
-- Install Sysmon for advanced process-level telemetry  
-
----
-
-[⬅️ Back to Main Portfolio](../README.md)
+* Analyze specific Windows authentication events.
+* Configure Splunk to ingest Windows Security logs.
+* Install Sysmon for advanced process-level telemetry.
