@@ -27,7 +27,7 @@
 ### 1. Data Input Configuration
 Successfully added the Windows Security log channel as a data input source in the Splunk web interface.
 
-<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/33c267a562b954558d141a0f63e5bc4a5fa1cc4b/day2_input_setup.png" width="400" alt="Splunk Data Input Setup">
+<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/33c267a562b954558d141a0f63e5bc4a5fa1cc4b/day2_input_setup.png" width="500" alt="Splunk Data Input Setup">
 
 ### 2. Successful SPL Search (Event ID 4625)
 Utilized SPL to filter and table specific fields, allowing for rapid analysis of failed logon attempts.
@@ -35,12 +35,12 @@ Utilized SPL to filter and table specific fields, allowing for rapid analysis of
 **Query:**
 `index="main" source="WinEventLog:Security" EventCode=4625 | table _time, TargetUserName, Status, Sub_Status`
 
-<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/33c267a562b954558d141a0f63e5bc4a5fa1cc4b/day2_splunk_4625_search.png" width="400" alt="Splunk SPL Search Results">
+<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/33c267a562b954558d141a0f63e5bc4a5fa1cc4b/day2_splunk_4625_search.png" width="500" alt="Splunk SPL Search Results">
 
 ### 3. Detailed Event Breakdown
 Expanded the raw event details within Splunk to inspect metadata and verify specific failure codes.
 
-<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/33c267a562b954558d141a0f63e5bc4a5fa1cc4b/day2_event_deatails.png" width="400" alt="Splunk Event Breakdown">
+<img src="https://github.com/swathi-45/Detection-Lab-Windows-Splunk/blob/33c267a562b954558d141a0f63e5bc4a5fa1cc4b/day2_event_deatails.png" width="500" alt="Splunk Event Breakdown">
 
 ---
 
